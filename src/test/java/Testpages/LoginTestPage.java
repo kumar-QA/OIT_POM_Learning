@@ -1,5 +1,6 @@
 package Testpages;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.Baseclass;
@@ -14,7 +15,12 @@ public class LoginTestPage extends Baseclass{
 	@Test
 	void verifyLoginFunction() {
 		lp=new LoginPage(driver);
-		lp.performLogin();	
+		  String ExpectedValue="Your store. Login";
+		  String actualvalue=lp.getPageTitle();
+		  Assert.assertEquals(actualvalue, ExpectedValue);
+		  lp.performLogin();
+		
+		
 	}
 
 }
